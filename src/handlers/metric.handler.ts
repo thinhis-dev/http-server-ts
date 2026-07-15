@@ -4,5 +4,14 @@ import { Handler } from '../config/types.js'
 export const handlerMetric: Handler = (_req, res) => {
   const { fileserverHits } = config
 
-  res.send(`Hits: ${fileserverHits}`)
+  res.set('Content-Type', 'text/html')
+  res.write(`
+    <html>
+      <body>
+        <h1>Welcome, Chirpy Admin</h1>
+        <p>Chirpy has been visited ${fileserverHits} times!</p>
+      </body>
+    </html>
+  `)
+  res.end()
 }

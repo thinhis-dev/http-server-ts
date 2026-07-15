@@ -9,9 +9,9 @@ const app = express();
 // middleware
 app.use(middlewareLogResponses);
 app.use('/app', middlewareMetricsInc);
-app.use('/healthz', healthRouter);
-app.use('/metrics', metricRouter);
-app.use('/reset', resetRouter);
+app.use('/api/healthz', healthRouter);
+app.use('/admin/metrics', metricRouter);
+app.use('/admin/reset', resetRouter);
 app.use('/app', express.static('./src/app'));
 app.use('/app', express.static('./src/app/assets'));
 app.listen(PORT, () => {
